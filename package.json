@@ -1,4 +1,7 @@
 {
+  "engine": {
+    "node": "22.15.0"
+  },
   "name": "client-iw-commerce",
   "version": "0.1.0",
   "private": true,
