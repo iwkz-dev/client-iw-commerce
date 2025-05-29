@@ -10,7 +10,7 @@ export default function Page() {
     <div className="min-h-screen bg-gradient-to-b from-[#f2ffef] to-white">
       <EcommerceHeader />
       <HeroBanner />
-      <main className="pt-32">
+      <main>
         <ProductMenu />
       </main>
       <Footer/>

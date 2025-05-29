@@ -11,9 +11,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">ShopLogo</h3>
+            <h3 className="text-xl font-bold">© 2025 IWKZ</h3>
             <p className="text-gray-300 text-sm">
-              Your trusted partner for quality products and exceptional service.
+              Sate Somay by IWKZ e.V.
             </p>
             <div className="flex space-x-4">
               <Link

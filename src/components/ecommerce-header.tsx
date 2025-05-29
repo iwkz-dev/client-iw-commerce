@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Search, ShoppingCart, User, Heart, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -55,7 +56,7 @@ export default function EcommerceHeader() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="text-2xl font-bold text-gray-900">
-              ShopLogo
+               <Image src="/iwkz_logo.png" alt="Picture of the IWKZ Logo" width={60} height={20} />
             </Link>
 
             {/* Desktop Navigation */}

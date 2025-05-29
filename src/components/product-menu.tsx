@@ -167,7 +167,7 @@ export default function ProductMenu() {
         </TabsList>
 
         <TabsContent value="food" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {getProductsByCategory("food").map((product) => (
               <ProductCard
                 key={product.id}
@@ -180,7 +180,7 @@ export default function ProductMenu() {
         </TabsContent>
 
         <TabsContent value="drinks" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {getProductsByCategory("drinks").map((product) => (
               <ProductCard
                 key={product.id}
@@ -193,7 +193,7 @@ export default function ProductMenu() {
         </TabsContent>
 
         <TabsContent value="other" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {getProductsByCategory("other").map((product) => (
               <ProductCard
                 key={product.id}
@@ -258,16 +258,17 @@ function ProductCard({ product, isFavorite, onToggleFavorite }: ProductCardProps
 
       <CardHeader className="pb-2">
         <CardTitle className="text-lg font-semibold line-clamp-1">{product.name}</CardTitle>
-        <CardDescription className="text-sm text-gray-600 line-clamp-2 min-h-[2.5rem]">
+        <CardDescription className="text-xs sm:text-sm text-gray-600 md:line-clamp-2 ">
           {product.description}
         </CardDescription>
       </CardHeader>
 
       <CardFooter className="pt-2 flex items-center justify-between">
-        <div className="text-xl font-bold text-gray-900">€{product.price.toFixed(2)}</div>
-        <Button size="sm" className="gap-2">
-          <ShoppingCart className="w-4 h-4" />
-          Add to Cart
+        <div className="text-lg md:text-xl font-bold text-gray-900">${product.price.toFixed(2)}</div>
+        <Button size="sm" className="gap-0.5 sm:gap-1 md:gap-2 text-[10px] sm:text-xs md:text-sm px-1.5 sm:px-2 md:px-3 py-0.5 sm:py-1 md:py-2">
+          <ShoppingCart className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4" />
+          <span className="hidden sm:inline">Add to Cart</span>
+          <span className="sm:hidden">Add</span>
         </Button>
       </CardFooter>
     </Card>
