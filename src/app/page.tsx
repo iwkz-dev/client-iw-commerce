@@ -1,16 +1,25 @@
-import { Footer } from "@/components/footer"
+"use client"
+import EcommerceHeader from "@/components/ecommerce-header"
+import WhatsAppFloat from "@/components/whatsapp-float"
+import ProductMenu from "@/components/product-menu"
+import HeroBanner from "@/components/hero-banner"
+import Footer  from "@/components/footer"
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <main className="flex-1">
-        {/* Your page content goes here */}
-        <div className="container py-12">
-          <h1 className="text-3xl font-bold">Welcome to My Website</h1>
-          <p className="mt-4 text-muted-foreground">This is a sample page with a footer.</p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-b from-[#f2ffef] to-white">
+      <EcommerceHeader />
+      <HeroBanner />
+      <main className="pt-32">
+        <ProductMenu />
       </main>
-      <Footer />
+      <Footer/>
+      {/* WhatsApp Float Button */}
+      <WhatsAppFloat
+        phoneNumber="491792851483"
+        message="Hi! saya ada pertanyaan perihal SaSo 2025"
+        position="bottom-left"
+      />
     </div>
   )
 }
