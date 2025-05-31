@@ -140,10 +140,6 @@ export default function ProductMenu() {
     return sampleProducts.filter((product) => product.category === category)
   }
 
-  const formatPrice = (price: number) => {
-    return `$${price.toFixed(2)}`
-  }
-
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-8">
