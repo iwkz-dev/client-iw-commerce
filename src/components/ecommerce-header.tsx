@@ -1,62 +1,61 @@
-"use client"
+'use client';
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Search, ShoppingCart, User, Heart, Menu } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Search, ShoppingCart, User, Heart, Menu } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 export default function EcommerceHeader() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isScrollingDown, setIsScrollingDown] = useState(false)
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
+      const currentScrollY = window.scrollY;
 
       // Determine scroll direction
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsScrollingDown(true)
+        setIsScrollingDown(true);
       } else {
-        setIsScrollingDown(false)
+        setIsScrollingDown(false);
       }
 
       // Check if scrolled past header
-      setIsScrolled(currentScrollY > 150)
-      setLastScrollY(currentScrollY)
-    }
+      setIsScrolled(currentScrollY > 150);
+      setLastScrollY(currentScrollY);
+    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [lastScrollY])
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const navigationItems = [
-    { name: "Home", href: "/" },
-    { name: "Shop", href: "/shop" },
-    { name: "Categories", href: "/categories" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-  ]
+    { name: 'Home', href: '/sate-somay' },
+    { name: 'Shop', href: '/shop' },
+    { name: 'Categories', href: '/categories' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
+  ];
 
   return (
     <>
       {/* Main Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 bg-white border-b transition-transform duration-300 ${
-          isScrollingDown ? "-translate-y-full" : "translate-y-0"
+          isScrollingDown ? '-translate-y-full' : 'translate-y-0'
         }`}
       >
-
         {/* Main Navigation */}
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-               <Image src="/iwkz_logo.png" alt="Picture of the IWKZ Logo" width={60} height={20} />
+            <Link href="/sate-somay" className="text-2xl font-bold text-gray-900">
+              <Image src="/iwkz_logo.png" alt="Picture of the IWKZ Logo" width={60} height={20} />
             </Link>
 
             {/* Desktop Navigation */}
@@ -88,7 +87,12 @@ export default function EcommerceHeader() {
               </Button>
 
               {/* Mobile Menu Button */}
-              <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setIsMobileMenuOpen(true)}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden"
+                onClick={() => setIsMobileMenuOpen(true)}
+              >
                 <Menu className="w-5 h-5" />
               </Button>
             </div>
@@ -99,7 +103,7 @@ export default function EcommerceHeader() {
       {/* Simplified Header (shows when main header is hidden) */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 bg-white border-b shadow-md transition-transform duration-300 ${
-          isScrolled && isScrollingDown ? "translate-y-0" : "-translate-y-full"
+          isScrolled && isScrollingDown ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
         <div className="container mx-auto px-4 py-3">
@@ -182,5 +186,5 @@ export default function EcommerceHeader() {
         </div>
       </header>
     </>
-  )
+  );
 }
